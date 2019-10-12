@@ -13,7 +13,7 @@ class NewInternational extends React.Component {
   }
 
   onSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     const { name, country } = this.state;
 
