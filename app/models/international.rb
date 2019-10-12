@@ -1,4 +1,6 @@
 class International < ApplicationRecord
+  include Friendable
+
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
