@@ -15,8 +15,6 @@ class Internationals extends React.Component {
   render () {
     const { internationals } = this.state
 
-    console.log(internationals)
-
     return (
       <>
         <h1>Internationals</h1>
