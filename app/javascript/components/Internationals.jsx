@@ -34,7 +34,7 @@ class Internationals extends React.Component {
                 <tr key={index}>
                   <td>{international.name}</td>
                   <td>{international.country}</td>
-                  <td></td>
+                  <td>{international.friends_count}</td>
                   <td><Link to={`/internationals/${international.slug}`}>View</Link></td>
                 </tr>
               ))}

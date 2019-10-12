@@ -1,8 +1,8 @@
 class Api::V1::InternationalsController < ApplicationController
-  before_action :set_international, only: %i[show]
+  before_action :set_international, only: :show
 
   def index
-    @internationals = International.all.order(created_at: :desc)
+    @internationals = International.all
   end
 
   def create
