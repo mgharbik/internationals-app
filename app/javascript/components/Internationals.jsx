@@ -20,18 +20,18 @@ class Internationals extends React.Component {
         <h1>Internationals</h1>
 
         {internationals.length > 0 ? (
-          <table>
+          <table className="table">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Country of Origin</th>
-                <th>Number of Friends</th>
-                <th></th>
+                <th className="col">Name</th>
+                <th className="col">Country</th>
+                <th className="col"># of Friends</th>
+                <th className="col"></th>
               </tr>
             </thead>
             <tbody>
               {internationals.map((international, index) => (
-                <tr key={index}>
+                <tr key={index} scope="row">
                   <td>{international.name}</td>
                   <td>{international.country}</td>
                   <td>{international.friends_count}</td>
@@ -41,7 +41,9 @@ class Internationals extends React.Component {
             </tbody>
           </table>
         ) : (
-          <div>No internationals yet, <Link to="/internationals/new">Create one!</Link></div>
+          <div class="alert alert-primary" role="alert">
+            No internationals yet, <Link class="alert-link" to="/internationals/new">Create one!</Link>
+          </div>
         )}
       </>
     )

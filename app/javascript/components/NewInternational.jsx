@@ -26,12 +26,13 @@ class NewInternational extends React.Component {
   render () {
     return (
       <>
-        <h1>Create New International</h1>
+        <h1>New International</h1>
 
         <form onSubmit={this.onSubmit}>
-          <div>
+          <div className="form-group">
             <label>Name</label>
             <input
+              className="form-control"
               type="text"
               name="name"
               required
@@ -39,9 +40,10 @@ class NewInternational extends React.Component {
             />
           </div>
 
-          <div>
+          <div className="form-group">
             <label>Country of Origin</label>
             <input
+              className="form-control"
               type="text"
               name="country"
               required
@@ -49,9 +51,7 @@ class NewInternational extends React.Component {
             />
           </div>
 
-          <button type="submit">Submit</button>
-
-          <Link to="/">Back</Link>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </>
     )

@@ -49,7 +49,7 @@ class International extends React.Component {
           international: {
             ...international,
             friends_count: international.friends_count + 1,
-            friends: [...international.friends, friend],
+            friends: [friend, ...international.friends],
             suggested_friends: newSuggestedFriends,
           }
         })
@@ -64,18 +64,20 @@ class International extends React.Component {
         <h1>{international.name} - {international.country}</h1>
 
         <div className="friends">
-          <h3>Friends ({international.friends_count})</h3>
+          <h3>Friends <span className="badge badge-primary">{international.friends_count}</span></h3>
 
           {international.friends.length > 0 ? (
-            <ul>
+            <ul className="list-group list-group-flush">
               {international.friends.map((friend, index) => (
-                <li key={index}>
+                <li className="list-group-item" key={index}>
                   <Link to={`/internationals/${friend.slug}`}>{friend.name} - {friend.country}</Link>
                 </li>
               ))}
             </ul>
           ) : (
-            <div>No friends, Please add ones bellow!</div>
+            <div className="alert alert-primary" role="alert">
+              No friends, please add ones!
+            </div>
           )}
         </div>
 
@@ -83,16 +85,24 @@ class International extends React.Component {
           <h3>Suggested Friends</h3>
 
           {international.suggested_friends.length > 0 ? (
-            <ul>
+            <ul className="list-group list-group-flush">
               {international.suggested_friends.map((friend, index) => (
-                <li key={index}>
+                <li className="list-group-item" key={index}>
                   <Link to={`/internationals/${friend.slug}`}>{friend.name} - {friend.country}</Link>
-                  <button type="button" value={friend.id} data-index={index} onClick={this.addFriend}>Add</button>
+                  <button
+                    type="button"
+                    className="btn btn-success float-right"
+                    value={friend.id}
+                    data-index={index}
+                    onClick={this.addFriend}
+                  >Add</button>
                 </li>
               ))}
             </ul>
           ) : (
-            <div>Sorry, no more suggested friends!</div>
+            <div className="alert alert-primary" role="alert">
+              Sorry, no more suggested friends!
+            </div>
           )}
         </div>
       </>

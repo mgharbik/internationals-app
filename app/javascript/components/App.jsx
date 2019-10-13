@@ -14,12 +14,16 @@ class App extends React.Component {
 
     return (
       <>
-        <Navigation />
-        <Switch>
-          <Route exact path="/" component={Internationals} />
-          <Route exact path="/internationals/new" component={NewInternational} />
-          <Route exact path="/internationals/:slug" component={International} />
-        </Switch>
+        <main role="main">
+          <div className="container">
+            <Navigation />
+            <Switch>
+              <Route exact path="/" component={Internationals} />
+              <Route exact path="/internationals/new" component={NewInternational} />
+              <Route exact path="/internationals/:slug" component={International} />
+            </Switch>
+          </div>
+        </main>
       </>
     )
   }
