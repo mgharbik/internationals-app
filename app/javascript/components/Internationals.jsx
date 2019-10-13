@@ -41,8 +41,8 @@ class Internationals extends React.Component {
             </tbody>
           </table>
         ) : (
-          <div class="alert alert-primary" role="alert">
-            No internationals yet, <Link class="alert-link" to="/internationals/new">Create one!</Link>
+          <div className="alert alert-primary" role="alert">
+            No internationals yet, <Link className="alert-link" to="/internationals/new">Create one!</Link>
           </div>
         )}
       </>
