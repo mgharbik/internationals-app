@@ -9,7 +9,7 @@ class Api::V1::InternationalsController < ApplicationController
     @international = International.new(international_params)
 
     if @international.save
-      render :show, status: :created
+      render json: { slug: @international.slug }, status: :created
     else
       render json: @international.errors, status: :unprocessable_entity
     end
