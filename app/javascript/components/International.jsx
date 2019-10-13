@@ -49,7 +49,7 @@ class International extends React.Component {
           international: {
             ...international,
             friends_count: international.friends_count + 1,
-            friends: [friend, ...international.friends],
+            friends: [...international.friends, friend],
             suggested_friends: newSuggestedFriends,
           }
         })

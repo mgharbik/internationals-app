@@ -2,7 +2,7 @@ class Api::V1::InternationalsController < ApplicationController
   before_action :set_international, only: :show
 
   def index
-    @internationals = International.all
+    @internationals = International.ordered
   end
 
   def create

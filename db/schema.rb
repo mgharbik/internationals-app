@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_091200) do
+ActiveRecord::Schema.define(version: 2019_10_13_101300) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_091200) do
     t.integer "international_2_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["international_1_id", "international_2_id"], name: "index_friendships_on_international_1_id_and_international_2_id", unique: true
     t.index ["international_1_id"], name: "index_friendships_on_international_1_id"
     t.index ["international_2_id"], name: "index_friendships_on_international_2_id"
   end
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_091200) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
+    t.integer "friends_count", default: 0, null: false
     t.index ["slug"], name: "index_internationals_on_slug", unique: true
   end
 

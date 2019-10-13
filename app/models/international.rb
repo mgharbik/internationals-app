@@ -7,7 +7,7 @@ class International < ApplicationRecord
   validates :name, presence: true
   validates :country, presence: true
 
-  default_scope { order(created_at: :desc) }
+  scope :ordered, -> { order(created_at: :desc) }
 
   private
 

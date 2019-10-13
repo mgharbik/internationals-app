@@ -1,33 +1,22 @@
 module Friendable
-  include ActiveSupport::Concern
-
-  def friends_count
-    friend_ids.count
-  end
+  extend ActiveSupport::Concern
 
   def friends
-    International.find(friend_ids)
+    International
+      .joins("
+        LEFT JOIN friendships
+          ON friendships.international_1_id = internationals.id
+        WHERE friendships.international_2_id = #{id}")
+      .union(
+        International
+          .joins("
+            LEFT JOIN friendships
+              ON friendships.international_2_id = internationals.id
+            WHERE friendships.international_1_id = #{id}")
+      )
   end
 
   def suggested_friends
-    International.where.not(id: [id, *friend_ids])
-  end
-
-  private
-
-  def friend_ids
-    arel_table = Friendship.arel_table
-
-    Friendship
-      .where(
-        [
-          arel_table[:international_1_id].eq(id),
-          arel_table[:international_2_id].eq(id),
-        ].reduce(&:or)
-      )
-      .pluck(:international_1_id, :international_2_id)
-      .flatten
-      .uniq
-      .-([id])
+    International.where.not(id: [id, *friends.ids])
   end
 end
