@@ -9,10 +9,10 @@
 
 ```
 $ git clone git@github.com:mgharbik/internationals-app.git
-$ internationals-app
+$ cd internationals-app
 $ bundle install
-$ rails db:create db:migrate db:seed
 $ yarn install
+$ rails db:create db:migrate db:seed
 $ rails s
 ```
 
